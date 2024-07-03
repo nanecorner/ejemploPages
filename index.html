@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/styles.css">
     <title>Diplotech</title>
     <link rel="icon" href="images/icon.png" type="image/png">
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
 </head>
 <body>
     <header id="header">
@@ -14,11 +15,12 @@
             <img class="imageLogo" src="images/logo.png" alt="logo">
             <div class="logo"><b>Diplo</b><i>Tech</i></div>
             <div id="title">Diplomado de Innovación en Gestión de Proyectos</div>
-            <div id="description">El diplomado de innovación en gestión de proyectos tiene como objetivo formar profesionales capaces de afrontar retos para crear, mejorar y perfeccionar diversos procesos en el ámbito de gestión de proyectos.</div>
-            <div id="divisionHeader"></div>
+            <div id="description">El diplomado de innovación en gestión de proyectos tiene como objetivo formar profesionales capaces de afrontar retos para crear, mejorar y perfeccionar diversos procesos en el ámbito de gestión de proyectos.
+                <div id="divisionHeader"></div>
+            </div>
             <p id="date">Fecha de inicio: </p>
             <div id="data">
-                <p class="data">06 de agosto del 2022</p>
+                <p class="data">06 de agosto del 2023</p>
                 <div id="months" class="data"><img src="images/calendar.png" alt="calendar">3 meses</div>
                 <div id="modules" class="data"><img src="images/books.png" alt="modules">7 módulos</div>
             </div>
@@ -34,7 +36,7 @@
                 <input type="email" name="mail" placeholder="ej. juanmartinez@correo.com" required><br>
                 <label for="number">Teléfono:</label>
                 <input type="text" name="number" placeholder="ej. 5512345678" required><br>
-                <input type="submit" value="Enviar" id="send">
+                <button id="send">Enviar</button>
             </form>
         </div>
     </header>
@@ -237,7 +239,33 @@
                 info.diplotech@gmail.com
             </div>
         </div>
-        <div class="notice">SE PROHÍBE LA REPRODUCCIÓN TOTAL O PARCIAL DEL SITIO O CUALQUIER CONTENIDO DEL MISMO. D.R.© DIPLOTECH , MÉXICO. 2022 AVE. SANTA FÉ 104 NTE. COL. CALETTO C.P. 84598 | GUADALAJARA, JALISCO | MÉXICO.</div>
+        <div class="notice">SE PROHÍBE LA REPRODUCCIÓN TOTAL O PARCIAL DEL SITIO O CUALQUIER CONTENIDO DEL MISMO. D.R.© DIPLOTECH , MÉXICO. 2023 AVE. SANTA FÉ 104 NTE. COL. CALETTO C.P. 84598 | GUADALAJARA, JALISCO | MÉXICO.</div>
     </div>
+    <script type="text/javascript">
+        // Inicializa EmailJS con tu user_id
+        (function(){
+          emailjs.init('rEkiW8fWxuKIjsn4b'); // Reemplaza TU_USER_ID con tu user_id
+        })();
+        
+        // Añade el evento click al botón
+        document.getElementById('send').addEventListener('click', function(event) {
+          event.preventDefault(); // Previene el envío por defecto del formulario
+          
+          // Obtiene los valores de los campos del formulario
+          var to_name = document.getElementsByName('name')[0].value;
+          var to_mail = document.getElementsByName('mail')[0].value;
+          
+          // Envía el correo utilizando el servicio y la plantilla configurada
+          emailjs.send('service_useswcj', 'template_zpib4p7', {
+            to_name: to_name,
+            to_mail: to_mail
+          }).then(function(response) {
+            console.log('Correo enviado exitosamente!', response.status, response.text);
+          }, function(error) {
+            console.log('Falló el envío del correo...', error);
+          });
+        });
+      </script>
+      
 </body>
 </html>
