@@ -36,7 +36,7 @@
                 <input type="email" name="mail" placeholder="ej. juanmartinez@correo.com" required><br>
                 <label for="number">Teléfono:</label>
                 <input type="text" name="number" placeholder="ej. 5512345678" required><br>
-                <button id="send">Enviar</button>
+                <input type="submit" value="Enviar" id="send">
             </form>
         </div>
     </header>
@@ -247,12 +247,13 @@
           emailjs.init('rEkiW8fWxuKIjsn4b'); // Reemplaza TU_USER_ID con tu user_id
         })();
         
-        // Añade el evento click al botón
-        document.getElementById('send').addEventListener('click', function() {
+        // Añade el evento submit al formulario
+        document.querySelector('form').addEventListener('submit', function(event) {
+          event.preventDefault(); // Previene el envío por defecto del formulario
           
           // Obtiene los valores de los campos del formulario
-          var to_name = document.getElementsByName('name')[0].value;
-          var to_mail = document.getElementsByName('mail')[0].value;
+          var to_name = this.elements['name'].value;
+          var to_mail = this.elements['mail'].value;
           
           // Envía el correo utilizando el servicio y la plantilla configurada
           emailjs.send('service_useswcj', 'template_zpib4p7', {
@@ -260,11 +261,14 @@
             to_mail: to_mail
           }).then(function(response) {
             console.log('Correo enviado exitosamente!', response.status, response.text);
+            // Aquí podrías añadir lógica adicional después de enviar el correo, como mostrar un mensaje de éxito al usuario.
           }, function(error) {
             console.log('Falló el envío del correo...', error);
+            // Aquí podrías manejar errores, como mostrar un mensaje de error al usuario.
           });
         });
-      </script>
+    </script>
+    
       
 </body>
 </html>

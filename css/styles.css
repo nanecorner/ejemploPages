@@ -136,9 +136,6 @@ input::placeholder{
     width: 100px;
     text-align: center;
     padding-left: 0;
-    height: 30px;
-    border-radius: 10px;
-    box-sizing: border-box;
 }
 #menu{
     background-color: #3E517A;
