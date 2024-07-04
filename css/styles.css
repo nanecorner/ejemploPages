@@ -128,15 +128,30 @@ input::placeholder{
     font-size: 15px;
     font-weight: 300;
 }
+#confirmationMessage{
+    align-self: center;
+    padding-bottom: 10px;
+    color: #EFFAF2;
+    margin: 0;
+}
 #send{
-    margin-top: 30px;
     background-color: #3E517A;
     color: whitesmoke;
     border: 0;
     width: 100px;
     text-align: center;
     padding-left: 0;
+    cursor: pointer;
 }
+#send:hover {
+    background-color: #2D3A5F;
+    transform: scale(1.05);
+  }
+  
+  #send:active {
+    background-color: #1F2A42;
+    transform: scale(1);
+  }
 #menu{
     background-color: #3E517A;
     height: 60px;

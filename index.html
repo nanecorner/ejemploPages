@@ -8,6 +8,7 @@
     <title>Diplotech</title>
     <link rel="icon" href="images/icon.png" type="image/png">
     <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script type="text/javascript" src="js/main.js" defer></script>
 </head>
 <body>
     <header id="header">
@@ -15,10 +16,11 @@
             <img class="imageLogo" src="images/logo.png" alt="logo">
             <div class="logo"><b>Diplo</b><i>Tech</i></div>
             <div id="title">Diplomado de Innovación en Gestión de Proyectos</div>
-            <div id="description">El diplomado de innovación en gestión de proyectos tiene como objetivo formar profesionales capaces de afrontar retos para crear, mejorar y perfeccionar diversos procesos en el ámbito de gestión de proyectos.
+            <div id="description">
+                El diplomado de innovación en gestión de proyectos tiene como objetivo formar profesionales capaces de afrontar retos para crear, mejorar y perfeccionar diversos procesos en el ámbito de gestión de proyectos.
                 <div id="divisionHeader"></div>
             </div>
-            <p id="date">Fecha de inicio: </p>
+            <p id="date">Fecha de inicio:</p>
             <div id="data">
                 <p class="data">06 de agosto del 2023</p>
                 <div id="months" class="data"><img src="images/calendar.png" alt="calendar">3 meses</div>
@@ -26,26 +28,27 @@
             </div>
         </div>
         <div id="rightHeader">
-            <form action="">
+            <form id="contactForm">
                 <p>¡Empieza tu proceso!</p>
                 <label for="name">Nombre(s):</label>
-                <input type="text" name="name" placeholder="ej. Juan Antonio" required><br>
+                <input type="text" id="name" name="name" placeholder="ej. Juan Antonio" required><br>
                 <label for="lastName">Apellido(s):</label>
-                <input type="text" name="lastName" placeholder="ej. Martínez Reyes" required><br>
+                <input type="text" id="lastName" name="lastName" placeholder="ej. Martínez Reyes" required><br>
                 <label for="mail">Correo electrónico:</label>
-                <input type="email" name="mail" placeholder="ej. juanmartinez@correo.com" required><br>
+                <input type="email" id="mail" name="mail" placeholder="ej. juanmartinez@correo.com" required><br>
                 <label for="number">Teléfono:</label>
-                <input type="text" name="number" placeholder="ej. 5512345678" required><br>
+                <input type="text" id="number" name="number" placeholder="ej. 5512345678" required><br>
+                <label for="send" id="confirmationMessage">Message</Label>
                 <input type="submit" value="Enviar" id="send">
             </form>
         </div>
     </header>
     <nav id="menu">
-        <div class="sectionMenu"><a class="linkMenu" href="#program">Programa</a></div>            
-        <div class="sectionMenu"><a class="linkMenu" href="#entry">Ingreso</a></div>            
-        <div class="sectionMenu"><a class="linkMenu" href="#egress">Egreso</a></div>            
-        <div class="sectionMenu"><a class="linkMenu" href="#methodology">Metodología</a></div>            
-        <div class="sectionMenu"><a class="linkMenu" href="#studies">Plan currícular</a></div>                
+        <div class="sectionMenu"><a class="linkMenu" href="#program">Programa</a></div>
+        <div class="sectionMenu"><a class="linkMenu" href="#entry">Ingreso</a></div>
+        <div class="sectionMenu"><a class="linkMenu" href="#egress">Egreso</a></div>
+        <div class="sectionMenu"><a class="linkMenu" href="#methodology">Metodología</a></div>
+        <div class="sectionMenu"><a class="linkMenu" href="#studies">Plan currícular</a></div>
     </nav>
     <div id="general">
         <section id="program">
@@ -239,36 +242,9 @@
                 info.diplotech@gmail.com
             </div>
         </div>
-        <div class="notice">SE PROHÍBE LA REPRODUCCIÓN TOTAL O PARCIAL DEL SITIO O CUALQUIER CONTENIDO DEL MISMO. D.R.© DIPLOTECH , MÉXICO. 2023 AVE. SANTA FÉ 104 NTE. COL. CALETTO C.P. 84598 | GUADALAJARA, JALISCO | MÉXICO.</div>
+        <div class="notice">
+            SE PROHÍBE LA REPRODUCCIÓN TOTAL O PARCIAL DEL SITIO O CUALQUIER CONTENIDO DEL MISMO. D.R.© DIPLOTECH , MÉXICO. 2023 AVE. SANTA FÉ 104 NTE. COL. CALETTO C.P. 84598 | GUADALAJARA, JALISCO | MÉXICO.
+        </div>
     </div>
-    <script type="text/javascript">
-        // Inicializa EmailJS con tu user_id
-        (function(){
-          emailjs.init('rEkiW8fWxuKIjsn4b'); // Reemplaza TU_USER_ID con tu user_id
-        })();
-        
-        // Añade el evento submit al formulario
-        document.querySelector('form').addEventListener('submit', function(event) {
-          event.preventDefault(); // Previene el envío por defecto del formulario
-          
-          // Obtiene los valores de los campos del formulario
-          var to_name = this.elements['name'].value;
-          var to_mail = this.elements['mail'].value;
-          
-          // Envía el correo utilizando el servicio y la plantilla configurada
-          emailjs.send('service_useswcj', 'template_zpib4p7', {
-            to_name: to_name,
-            to_mail: to_mail
-          }).then(function(response) {
-            console.log('Correo enviado exitosamente!', response.status, response.text);
-            // Aquí podrías añadir lógica adicional después de enviar el correo, como mostrar un mensaje de éxito al usuario.
-          }, function(error) {
-            console.log('Falló el envío del correo...', error);
-            // Aquí podrías manejar errores, como mostrar un mensaje de error al usuario.
-          });
-        });
-    </script>
-    
-      
 </body>
 </html>
