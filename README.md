@@ -1,2 +1,2 @@
 # diplomado
-Landing page diplomado
+Landing page de diplomado

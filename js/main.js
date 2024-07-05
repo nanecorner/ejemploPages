@@ -5,9 +5,8 @@
 document.getElementById('contactForm').addEventListener('submit', function(event) {
   event.preventDefault(); // Evita que el formulario se envíe de la manera tradicional
   var name = document.getElementById('name').value;
-  var lastName = document.getElementById('lastName').value;
   var mail = document.getElementById('mail').value;
-  var number = document.getElementById('number').value;
+  var number = '+52' + document.getElementById('number').value;
 
   fetch('https://thawing-mesa-75969-77a2012df85e.herokuapp.com/send-whatsapp', {
       method: 'POST',
@@ -16,7 +15,7 @@ document.getElementById('contactForm').addEventListener('submit', function(event
       },
       body: JSON.stringify({
           to: number,
-          body: `Hola ${name} ${lastName}, tu correo es ${mail} y tu número es ${number}.`
+          body: `Hola ${name}, pronto alguno de nuestros asesores se comunicara contigo.`
       })
   })
   .then(response => response.json())
@@ -34,9 +33,7 @@ document.getElementById('contactForm').addEventListener('submit', function(event
 
   emailjs.send('service_useswcj', 'template_zpib4p7', {
       to_name: name,
-      to_lastName: lastName,
-      to_mail: mail,
-      to_number: number
+      to_mail: mail
   }).then(function(response) {
       console.log('Correo enviado exitosamente!', response.status, response.text);
       document.getElementById('name').value = '';
