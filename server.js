@@ -7,9 +7,7 @@ const twilio = require('twilio');
 const app = express();
 const port = process.env.PORT || 3000;
 
-const accountSid = process.env.TWILIO_ACCOUNT_SID;
-const authToken = process.env.TWILIO_AUTH_TOKEN;
-const client = twilio(accountSid, authToken);
+const client = require('twilio')(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
