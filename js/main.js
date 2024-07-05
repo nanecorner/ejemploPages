@@ -9,14 +9,14 @@ document.getElementById('contactForm').addEventListener('submit', function(event
   var mail = document.getElementById('mail').value;
   var number = document.getElementById('number').value;
 
-  fetch('/send-whatsapp', {
+  fetch('https://thawing-mesa-75969-77a2012df85e.herokuapp.com/send-whatsapp', {
       method: 'POST',
       headers: {
           'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-          message: `Hola ${name} ${lastName}, tu correo es ${mail} y tu número es ${number}.`,
-          to: number
+          to: number,
+          body: `Hola ${name} ${lastName}, tu correo es ${mail} y tu número es ${number}.`
       })
   })
   .then(response => response.json())
