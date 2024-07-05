@@ -21,8 +21,8 @@ app.post('/send-whatsapp', async (req, res) => {
         // Enviar el mensaje usando el cliente de Twilio
         const message = await client.messages.create({
             body: body,
-            from: process.env.TWILIO_PHONE_NUMBER, // Usar el número de Twilio configurado
-            to: to
+            from: `whatsapp:${process.env.TWILIO_PHONE_NUMBER}`, // Usar whatsapp: en el número de Twilio
+            to: `whatsapp:${to}` // Asegúrate de usar whatsapp: en el número de destino también
         });
         console.log(message.sid); // Loggear el SID del mensaje enviado
         res.json({ success: true }); // Enviar respuesta JSON de éxito
