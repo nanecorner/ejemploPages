@@ -6,11 +6,12 @@ const client = require('twilio')(process.env.TWILIO_ACCOUNT_SID, process.env.TWI
 
 const app = express();
 
-// Configurar Body Parser para manejar solicitudes POST
-app.use(bodyParser.urlencoded({ extended: false }));
-
 // Configurar CORS para permitir solicitudes desde cualquier origen
 app.use(cors());
+
+// Configurar Body Parser para manejar solicitudes POST
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 // Ruta para manejar el envío de mensajes de WhatsApp
 app.post('/send-whatsapp', async (req, res) => {
@@ -26,7 +27,7 @@ app.post('/send-whatsapp', async (req, res) => {
         console.log(message.sid); // Loggear el SID del mensaje enviado
         res.json({ success: true }); // Enviar respuesta JSON de éxito
     } catch (error) {
-        console.error(error); // Manejar errores de envío
+        console.error('Error al enviar mensaje de WhatsApp:', error); // Registrar el error en la consola
         res.status(500).json({ error: 'Error al enviar el mensaje de WhatsApp.' }); // Enviar respuesta JSON de error
     }
 });
