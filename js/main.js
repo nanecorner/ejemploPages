@@ -15,7 +15,7 @@ document.getElementById('contactForm').addEventListener('submit', function(event
       },
       body: JSON.stringify({
           to: number,
-          body: `Hola ${name}, pronto alguno de nuestros asesores se comunicara contigo.`
+          body: `Hola ${name}, pronto alguno de nuestros asesores se comunicara contigo al ${number}. Crea tu cuenta en https://nanecorner.github.io/home.html. Saludos de parte del team DiploTech.`
       })
   })
   .then(response => response.json())
