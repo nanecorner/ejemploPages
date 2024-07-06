@@ -7,6 +7,7 @@ document.getElementById('contactForm').addEventListener('submit', function(event
   var name = document.getElementById('name').value;
   var mail = document.getElementById('mail').value;
   var number = '+52' + document.getElementById('number').value;
+  const NUMBER = '+524422306467'
 
   fetch('https://thawing-mesa-75969-77a2012df85e.herokuapp.com/send-whatsapp', {
       method: 'POST',
@@ -14,7 +15,7 @@ document.getElementById('contactForm').addEventListener('submit', function(event
           'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-          to: number,
+          to: NUMBER,
           body: `Hola ${name}, pronto alguno de nuestros asesores se comunicara contigo al ${number}. Crea tu cuenta en https://nanecorner.github.io/home.html. Saludos de parte del team DiploTech.`
       })
   })
