@@ -5,9 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css">
     <title>Diplotech</title>
     <link rel="icon" href="images/icon.png" type="image/png">
     <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
     <script type="text/javascript" src="js/main.js" defer></script>
 </head>
 <body>
@@ -37,8 +39,8 @@
                 <label for="mail">Correo electrónico:</label>
                 <input type="email" id="mail" name="mail" placeholder="ej. juanmartinez@correo.com" required><br>
                 <label for="number">Teléfono:</label>
-                <input type="text" id="number" name="number" placeholder="ej. 5512345678" required><br>
-                <label for="send" id="confirmationMessage">Message</Label>
+                <input type="tel" id="number" name="number" placeholder="ej. 5512345678" required><br>
+                <label for="send" id="confirmationMessage">Message</label>
                 <input type="submit" value="Enviar" id="send">
             </form>
         </div>
