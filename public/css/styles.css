@@ -505,6 +505,7 @@ li{
     font-weight: 100;
     font-size: 16px;
 }
+
 @media screen and (max-width: 980px){
 #header{
     height: 100%;
