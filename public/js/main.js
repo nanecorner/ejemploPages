@@ -23,7 +23,7 @@
         },
         body: JSON.stringify({
           to: NUMBER,
-          body: `Hola ${name}, pronto alguno de nuestros asesores se comunicará contigo al ${number}. Crea tu cuenta en https://nanecorner.github.io/home.html. Saludos de parte del team DiploTech.`
+          body: `Hola ${name}, pronto alguno de nuestros asesores se comunicará contigo al ${number}. Crea tu cuenta en https://nanecorner.github.io/public/home.html. Saludos de parte del team DiploTech.`
         })
       })
       .then(response => response.json())
