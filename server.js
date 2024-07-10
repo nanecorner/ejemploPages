@@ -4,7 +4,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const twilio = require('twilio');
-const emailjs = require('emailjs');
+const emailjs = require('emailjs-com');
 
 const accountSid = process.env.TWILIO_ACCOUNT_SID;
 const authToken = process.env.TWILIO_AUTH_TOKEN;
@@ -32,15 +32,14 @@ app.post('/send-whatsapp', (req, res) => {
 });
 
 app.post('/send-email', (req, res) => {
-    const { to_name, to_mail } = req.body;
-    const templateParams = {
-      to_name: to_name,
-      to_mail: to_mail
-    };
-    emailjs.send(emailJsServiceId, emailJsTemplateId, templateParams, emailJsUserId)
-      .then(response => res.status(200).send({ success: true, status: response.status, text: response.text }))
-      .catch(error => res.status(500).send({ success: false, error: error.message }));
-  });
+  const { to_name, to_mail } = req.body;
+  emailjs.send(emailJsServiceId, emailJsTemplateId, {
+    to_name: to_name,
+    to_mail: to_mail
+  }, emailJsUserId)
+  .then(response => res.status(200).send({ success: true, status: response.status, text: response.text }))
+  .catch(error => res.status(500).send({ success: false, error: error.message }));
+});
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
